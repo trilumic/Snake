@@ -13,12 +13,13 @@ public class GUI extends JFrame{
         this.game = game;
         this.addKeyListener(game);
         this.mnuBar.add(mnuSettings);
+        this.add(new Panel());
 
         this.setPreferredSize(new Dimension(800,600));
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        this.add(new Panel());
+
         this.setJMenuBar(mnuBar);
         this.pack();
         this.setLocationRelativeTo(null);

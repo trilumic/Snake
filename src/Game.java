@@ -10,13 +10,13 @@ public class Game extends KeyAdapter {
 
     private GUI gui;
     private Spielgrenze grenze = new Spielgrenze(new Rectangle(20, 20, 740, 500));
-    private Schlange schlange = new Schlange(new Rectangle(200,200));
-    private Diamant diamant = new Diamant(new Rectangle(Zufallsgenerator.zufallszahl(100,600),Zufallsgenerator.zufallszahl(100,400)));
+    private Schlange schlange = new Schlange(new Rectangle(400,400));
+    private Diamant diamant = new Diamant(new Rectangle(Zufallsgenerator.zufallszahl(200,600),Zufallsgenerator.zufallszahl(200,400)));
     private Diamant diamant1 = new Diamant(new Rectangle(Zufallsgenerator.zufallszahl(100,600),Zufallsgenerator.zufallszahl(100,400)));
     private Diamant diamant2 = new Diamant(new Rectangle(Zufallsgenerator.zufallszahl(100,600),Zufallsgenerator.zufallszahl(100,400)));
     private Vector<Spielelement> elemente = new Vector<Spielelement>();
 
-    public static final int UNIT = 20;
+    public static final int UNIT = 30;
 
     public Game() {
         this.gui = new GUI(this);
@@ -41,10 +41,10 @@ public class Game extends KeyAdapter {
     private void loop() {
         while (true){
             schlange.move();
-            checkSpielelemente(schlange);
+//            checkSpielelemente(schlange);
             gui.repaint();
             try {
-                Thread.sleep(60);
+                Thread.sleep(50);
             }catch(InterruptedException e){
                 e.printStackTrace();
             }
@@ -63,9 +63,9 @@ public class Game extends KeyAdapter {
 
     public void draw(Graphics g) {
         for (Spielelement e : elemente) {
-            if (e.isAlive) {
+//            if (e.isAlive) {
                 e.draw(g);
-            }
+//            }
         }
     }
 }

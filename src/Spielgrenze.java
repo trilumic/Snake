@@ -22,12 +22,13 @@ public class Spielgrenze extends Spielelement {
 
     public Boolean checkCollision(Schlange s) {
 //        for (Rectangle r : s.position) {
-            if (!grenze.contains(s.position))
+            if (grenze.contains(s.position))
             {
                 System.out.println("Kollision Grenze");
-                result = false;
+                return true;
+            }else {
+                return false;
             }
-            return result;
         }
 
 }
