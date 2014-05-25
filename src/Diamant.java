@@ -12,6 +12,7 @@ public class Diamant extends Spielelement {
     private String[] wertArray = {"1","2","3","4","5","6","7","8","9"};
     public static int gefresseneDiamanten;
 
+
     public Diamant(Rectangle r) {
         super(r);
         this.wert = Zufallsgenerator.zufallszahl(0,8);
@@ -23,10 +24,10 @@ public class Diamant extends Spielelement {
     public void draw(Graphics g) {
         if(isAlive) {
             Graphics2D g2d = (Graphics2D) g.create();
-            g2d.drawString(wertArray[wert], position.x - 4, position.y + Game.UNIT - 3);
+            g2d.drawString(wertArray[wert], position.x, position.y + Game.UNIT - 3);
             g2d.rotate(Math.toRadians(45), position.x, position.y);
 
-            g2d.drawRect(position.x, position.y, Game.UNIT - 4, Game.UNIT - 4);
+            g2d.drawRect(position.x+4, position.y-2, Game.UNIT - 4, Game.UNIT - 4);
         }
     }
 
