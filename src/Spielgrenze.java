@@ -1,13 +1,14 @@
 import java.awt.*;
-import java.util.Vector;
 
 /**
- * Created by TM on 03.05.2014.
+ * Die Klasse Spielgrenze erzeugt die Spielgrenze in Form eines Rechtecks. Sie enthält Methoden zum Prüfen auf Kollision mit der Schlange und
+ * zur Erzeugung der grafischen Darstellung (draw-Methode).
+ *
+ * @author Tristan Michel
  */
 public class Spielgrenze extends Spielelement {
 
     private Rectangle grenze;
-    private boolean result;
 
     public Spielgrenze(Rectangle r) {
         super(r);
@@ -20,11 +21,22 @@ public class Spielgrenze extends Spielelement {
         g2d.draw(grenze);
     }
 
+//    @Override
+//    public boolean isAlive() {
+//        return false;
+//    }
+//
+//    @Override
+//    public void kill() {
+//
+//    }
+
     public Boolean checkCollision(Schlange s) {
-//        for (Rectangle r : s.position) {
-            if (grenze.contains(s.position))
+            if (!position.contains(s.position))
             {
                 System.out.println("Kollision Grenze");
+                Game.gameState = false;
+                Game.gameEnd("You crashed into the border! Massive headaches are your reward.");
                 return true;
             }else {
                 return false;
